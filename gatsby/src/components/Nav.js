@@ -7,7 +7,7 @@ import Logo from './Logo';
 const NavStyles = styled.nav`
     margin-bottom: 3rem;
     .logo {
-        transform: translateY(-25%);
+        transform: translateY(- 25%);
     }
     ul {
         margin: 0;
@@ -18,6 +18,7 @@ const NavStyles = styled.nav`
         align-items: center; 
         text-align: center;
         list-style: none;
+        margin-top: -6rem;
     }
     li {
         --rotate: -2deg;
