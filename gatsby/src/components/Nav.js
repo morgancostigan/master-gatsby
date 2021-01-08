@@ -31,6 +31,16 @@ const NavStyles = styled.nav`
         &:nth-child(1) {
             --rotate: -1deg;
         }
+        &:hover {
+            --rotate: 5deg;
+        }
+    }
+    a {
+        font-size: 3rem;
+        text-decoration: none;
+        &:hover {
+            color: var(--red);
+        }
     }
 `;
 
