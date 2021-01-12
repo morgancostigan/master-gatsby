@@ -1,4 +1,5 @@
 import { GiSlicedMushroom as icon } from 'react-icons/gi';
+// import { ImLeaf as leaf } from 'react-icons/im';
 
 export default {
     //name in code
@@ -14,5 +15,23 @@ export default {
             type: 'string',
             description: 'Name of the Topping ',
         },
-    ]
-}
+        {
+            name: 'vegetarian',
+            title: 'Vegetarian',
+            type: 'boolean',
+            options: {
+                layout: 'switch', //could also use checkbox            
+            },
+        },
+    ],
+    preview: {
+        select: {
+            name: 'name',
+            vegetarian: 'vegetarian',
+        },
+        prepare: fields => ({
+            title: `${fields.name} ${fields.vegetarian ? '🌱' : '🍖'}`,
+        })
+
+    },
+};
