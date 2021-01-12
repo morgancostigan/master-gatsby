@@ -23,6 +23,12 @@ export default {
             },
         },
         {
+            name: 'description',
+            title: 'Description',
+            type: 'text',
+            description: 'Give us a short bio.'
+        },
+        {
             name: 'image',
             title: 'Image',
             type: 'image',
