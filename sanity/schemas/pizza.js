@@ -34,7 +34,7 @@ export default {
         {
             name: 'price',
             title: 'Price',
-            type: 'price',
+            type: 'number',
             description: 'Price of the pizza in cents',
             validation: Rule => Rule.min(1000), //minimum price ten dollars
             //TODO add custom input component 
