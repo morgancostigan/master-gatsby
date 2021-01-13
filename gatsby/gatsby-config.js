@@ -1,1 +1,8 @@
-// This file is empty, but some people were reporting that it would not start unless they had an empty file. So here it is! You can delete the comment. Or replace it with your favourite shania twain lyrics.
+//using module.exports (common js), because export default (ES6 module) breaks the start command even with r-esm in the build scripts
+export default {
+    siteMetadata: {
+        title: `Slick's Slices`,
+        siteUrl: `https://gatsby.pizza`,
+        description: `Simply the best, better than all the others.`,
+    },
+};
