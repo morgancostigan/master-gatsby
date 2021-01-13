@@ -6,10 +6,15 @@ function createPatchFrom(value) {
     return PatchEvent.from(value === '' ? unset() : set(Number(value)));
 }//end createPatchFrom function
 
+const formatMoney = Intl.NumberFormat('en-us', {
+    style: 'currency',
+    currency: 'EUR',
+}).format; 
+
 export default function PriceInput({ type, value, onChange, inputComponent}) {
     return (
         <div>
-            <h2>{type.title}</h2>
+            <h2>{type.title} - {value ? formatMoney(value / 100) : ''}</h2>
             <p>{type.description}</p> 
             <input 
                 type={type.name} 
