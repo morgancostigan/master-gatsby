@@ -1,12 +1,12 @@
 import { graphql } from 'gatsby';
 import React from 'react';
 
-export default function PizzasPage(props) {
-    console.log('props:', props.data.pizzas );
+export default function PizzasPage({data}) {
+    console.log('props:', data.pizzas );
     
     return (
         <>
-            <p>Kia Ora, I'm the pizza page!</p>
+            <p>Kia Ora, I'm the pizza page! There are {data.pizzas.nodes.length} pizzas.</p>
         </>
     );
 }
