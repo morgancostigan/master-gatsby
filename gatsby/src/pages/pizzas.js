@@ -1,7 +1,9 @@
 import { graphql } from 'gatsby';
 import React from 'react';
 
-export default function PizzasPage() {
+export default function PizzasPage(props) {
+    console.log('props:', props.data.pizzas );
+    
     return (
         <>
             <p>Kia Ora, I'm the pizza page!</p>
@@ -12,7 +14,8 @@ export default function PizzasPage() {
 export const query = graphql`
     # you don't NEED to name the query
     query PizzaQuery {
-        allSanityPizza {
+        # this renames the query
+        pizzas: allSanityPizza {
             nodes {
                 id
                 name
@@ -29,6 +32,7 @@ export const query = graphql`
                 image {
                     asset {
                         fluid(maxWidth: 400) {
+                            # this fragment is how our plugin asks for all associated data
                             ...GatsbySanityImageFluid
                         }
                     }
