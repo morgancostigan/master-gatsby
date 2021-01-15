@@ -33,6 +33,9 @@ export const query = graphql`
                 # images work a little differently in gatsby
                 image {
                     asset {
+                        fixed(width: 200, height: 200) {
+                            ...GatsbySanityImageFixed
+                        }
                         fluid(maxWidth: 400) {
                             # this fragment is how our plugin asks for all associated data
                             ...GatsbySanityImageFluid
