@@ -1,4 +1,4 @@
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql, Link, useStaticQuery } from 'gatsby';
 import React from 'react';
 
 function countPizzasForTopping(pizzas) {
@@ -56,14 +56,19 @@ export default function ToppingsFilter() {
             }
         }
     `)
-    console.clear();
     //3. count how many pizzas have eacch topping
     const toppingsWithCounts = countPizzasForTopping(pizzas.nodes);
     console.log({toppingsWithCounts});
     
-    //4. loop over topping list and display topping name and pizza count for each
     //5. Link it
     return <div>
-        <p>Toppins</p>
+        {/* //4. loop over topping list and display topping name and pizza count for each */}
+
+        {toppingsWithCounts.map(topping => (
+            <Link to={`/topping/${topping.name}`} key={topping.id}>
+                <span className="name">{topping.name}</span>
+                <span className="count">{topping.count}</span>
+            </Link>
+        ))};
     </div>
 }
