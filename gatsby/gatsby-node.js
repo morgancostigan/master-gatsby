@@ -51,7 +51,16 @@ async function turnToppingsIntoPages({ graphql, actions }) {
     //3. create page for each topping
     data.toppings.nodes.forEach(topping => {
         console.log('creatin page for', topping.name);
-        
+        actions.createPage({
+            //what's the URL for this new page
+            path: `topping/${topping.name}`,
+            component: toppingTemplate,
+            //use context to pass data TO template
+            context: {
+                topping: topping.name,
+                //TODO regex for topping
+            }
+        })
     });
     //4. pass topping data to pizza.js
 
