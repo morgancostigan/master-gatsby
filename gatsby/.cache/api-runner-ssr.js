@@ -8,16 +8,6 @@ var plugins = [{
       plugin: require('/Users/macbookpro/Documents/Tier-4/master-gatsby-master/starter-files/gatsby/gatsby-ssr'),
       options: {"plugins":[]},
     }]
-var plugins = [{
-      plugin: require('/Users/macbookpro/Documents/Tier-4/master-gatsby-master/starter-files/gatsby/node_modules/gatsby-plugin-styled-components/gatsby-ssr'),
-      options: {"plugins":[]},
-    },{
-      plugin: require('/Users/macbookpro/Documents/Tier-4/master-gatsby-master/starter-files/gatsby/node_modules/gatsby-source-sanity/gatsby-ssr'),
-      options: {"plugins":[],"projectId":"tpgjmlq2","dataset":"production","watchMode":true,"token":"skqBNUmVgusPC9Ckowi7biAyxd9Ba64d6PtXei1dUz2uyqPDbSdB0oAVkOO403PtJrzMKDKYJjIep06WMlQc4PMgoe89Q9kdJXNKYTgGh2egp3SMxnJRkA6ByHIyPDb7wSUg2DjwdDZgc67s305GtJar2jJ4enWWACNunziBFpwKdumqaOiK"},
-    },{
-      plugin: require('/Users/macbookpro/Documents/Tier-4/master-gatsby-master/starter-files/gatsby/gatsby-ssr'),
-      options: {"plugins":[]},
-    }]
 // During bootstrap, we write requires at top of this file which looks like:
 // var plugins = [
 //   {
