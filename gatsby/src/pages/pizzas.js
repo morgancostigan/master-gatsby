@@ -17,9 +17,12 @@ export default function PizzasPage({data}) {
 
 export const query = graphql`
     # you don't NEED to name the query
-    query PizzaQuery {
+    query PizzaQuery($topping: [String]) {
         # this renames the query
-        pizzas: allSanityPizza {
+        pizzas: allSanityPizza (
+            filter: { toppings: { elemMatch: { name: { in: $topping } } } }
+            )
+            {
             nodes {
                 id
                 name
