@@ -24,6 +24,10 @@ async function turnPizzasIntoPages({graphql, actions}) {
             //what's the URL for this new page
             path: `pizza/${pizza.slug.current}`,
             component: pizzaTemplate, 
+            //use context to pass data TO template
+            context: {
+                slug: pizza.slug.current,
+            }
         })
         
     });
