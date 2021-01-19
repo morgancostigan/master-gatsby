@@ -59,6 +59,7 @@ async function turnToppingsIntoPages({ graphql, actions }) {
             context: {
                 topping: topping.name,
                 //TODO regex for topping
+                toppingRegex: `/${topping.name}/i`,
             }
         })
     });

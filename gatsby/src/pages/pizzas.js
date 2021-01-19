@@ -9,7 +9,7 @@ export default function PizzasPage({data}) {
     return (
         <>
             <ToppingsFilter/>
-            <p>Kia Ora, I'm the pizza page! There are {pizzas.length} pizzas.</p>
+            {/* <p>Kia Ora, I'm the pizza page! There are {pizzas.length} pizzas.</p> */}
             <PizzaList pizzas={pizzas}/>
         </>
     );
@@ -17,10 +17,10 @@ export default function PizzasPage({data}) {
 
 export const query = graphql`
     # you don't NEED to name the query
-    query PizzaQuery($topping: [String]) {
+    query PizzaQuery($toppingRegex: String) {
         # this renames the query
         pizzas: allSanityPizza (
-            filter: { toppings: { elemMatch: { name: { in: $topping } } } }
+            filter: { toppings: { elemMatch: { name: { regex: $toppingRegex } } } }
             )
             {
             nodes {
