@@ -1,10 +1,17 @@
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import React from 'react';
+import styled from 'styled-components';
+
+const PizzaGrid = styled.div`
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+`;
 
 export default function SinglePizzaPage({data: {pizza}}) {
     // console.log({pizza});
-    return <div>
+    return <PizzaGrid>
         <Img fluid={pizza.image.asset.fluid}/>
         <div>
             <h2 className="mark">{pizza.name}</h2>
@@ -14,7 +21,7 @@ export default function SinglePizzaPage({data: {pizza}}) {
                 </li>)}
             </ul>
         </div>
-    </div>
+    </PizzaGrid>
 }
 
 //this needs to be dynamic based on the slug passed in via context in gatsby-node.js
