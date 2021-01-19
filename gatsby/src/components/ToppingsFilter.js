@@ -87,7 +87,7 @@ export default function ToppingsFilter() {
                     <span className="name">{topping.name}</span>
                     <span className="count">{topping.count}</span>
                 </Link>
-            ))};
+            ))}
         </ToppingsStyles>
     )
 };
