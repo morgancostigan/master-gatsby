@@ -122,6 +122,26 @@ var plugins = [{
   options: {
     "plugins": []
   }
+}];
+var plugins = [{
+  plugin: __webpack_require__(/*! ./node_modules/gatsby-plugin-styled-components/gatsby-ssr */ "./node_modules/gatsby-plugin-styled-components/gatsby-ssr.js"),
+  options: {
+    "plugins": []
+  }
+}, {
+  plugin: __webpack_require__(/*! ./node_modules/gatsby-source-sanity/gatsby-ssr */ "./node_modules/gatsby-source-sanity/gatsby-ssr.js"),
+  options: {
+    "plugins": [],
+    "projectId": "tpgjmlq2",
+    "dataset": "production",
+    "watchMode": true,
+    "token": "skqBNUmVgusPC9Ckowi7biAyxd9Ba64d6PtXei1dUz2uyqPDbSdB0oAVkOO403PtJrzMKDKYJjIep06WMlQc4PMgoe89Q9kdJXNKYTgGh2egp3SMxnJRkA6ByHIyPDb7wSUg2DjwdDZgc67s305GtJar2jJ4enWWACNunziBFpwKdumqaOiK"
+  }
+}, {
+  plugin: __webpack_require__(/*! ./gatsby-ssr */ "./gatsby-ssr.js"),
+  options: {
+    "plugins": []
+  }
 }]; // During bootstrap, we write requires at top of this file which looks like:
 // var plugins = [
 //   {
