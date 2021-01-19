@@ -12,6 +12,18 @@ export const query = graphql`
             {
                 name
                 id
+                image {
+                    asset {
+                        fluid(maxWidth: 800) {
+                            ...GatsbySanityImageFluid
+                        }
+                    }
+                }
+                toppings {
+                    name
+                    id
+                    vegetarian
+                }
             }
     }
 `; 
