@@ -1,5 +1,29 @@
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import React from 'react';
+import styled from 'styled-components';
+
+const ToppingsStyles = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 4rem;
+    a {
+        display: grid; 
+        grid-template-columns: auto 1fr;
+        grid-gap: 0 1rem;
+        align-items: center;
+        padding: 5px;
+        background: var(--grey);
+        border-radius: 2px;
+        .count {
+            background: white;
+            padding: 2px 5px;
+        }
+        .active {
+            background: var(--yellow);
+        }
+    }
+`;
 
 function countPizzasForTopping(pizzas) {
     //return the toppings with counts
@@ -61,14 +85,16 @@ export default function ToppingsFilter() {
     console.log({toppingsWithCounts});
     
     //5. Link it
-    return <div>
-        {/* //4. loop over topping list and display topping name and pizza count for each */}
+    return (
+        <ToppingsStyles>
+            {/* //4. loop over topping list and display topping name and pizza count for each */}
 
-        {toppingsWithCounts.map(topping => (
-            <Link to={`/topping/${topping.name}`} key={topping.id}>
-                <span className="name">{topping.name}</span>
-                <span className="count">{topping.count}</span>
-            </Link>
-        ))};
-    </div>
-}
+            {toppingsWithCounts.map(topping => (
+                <Link to={`/topping/${topping.name}`} key={topping.id}>
+                    <span className="name">{topping.name}</span>
+                    <span className="count">{topping.count}</span>
+                </Link>
+            ))};
+        </ToppingsStyles>
+    )
+};
