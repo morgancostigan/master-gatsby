@@ -13,7 +13,7 @@ export default function BeersPage({ data }) {
 
 export const query = graphql`
     query {
-        allBeer{
+        beers: allBeer{
             nodes{
                 id
                 name
