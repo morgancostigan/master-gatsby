@@ -9,7 +9,7 @@ const PizzaGrid = styled.div`
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
 `;
 
-export default function SinglePersonPage({ data: { pizza } }) {
+export default function SinglePersonPage({ data: { person } }) {
     // console.log({pizza});
     return <PizzaGrid>
         <Img fluid={pizza.image.asset.fluid} />
@@ -26,12 +26,20 @@ export default function SinglePersonPage({ data: { pizza } }) {
 
 //this needs to be dynamic based on the slug passed in via context in gatsby-node.js
 export const query = graphql`
-    query($slug: String!) {
+    query {
         people: allSanityPerson {
+            totalCount
             nodes {
                 name
                 id
                 description
+                image {
+                    asset {
+                        fluid(maxWidth: 300){
+                            ...GatsbySanityImageFluid
+                        }
+                    }
+                }
                 slug {
                     current
                 }
@@ -40,3 +48,4 @@ export const query = graphql`
     }
 `;
 
+ 
