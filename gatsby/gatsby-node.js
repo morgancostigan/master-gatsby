@@ -78,12 +78,28 @@ async function fetchBeersAndTurnIntoNodes({
         //1. fetch list of beers  
     const res = await fetch('https://api.sampleapis.com/beers/ale');
     const beers = await res.json();
-    console.log({beers});
-    
         //2. loop over them
-        //3. create a node for each      
-    
-}//end fetchBeersAndTurnIntoNodes
+        //could use a forEach, like in the pizzas and toppings
+        // using for of instead, just to illustrate both
+    for (const beer of beers){
+        //create a node for each beer
+        const nodeMeta = {
+            id: createNodeId(`beer-${beer.name}`), //this is a gatsby function
+            parent: null,
+            children: [],
+            internal: {
+                type: 'Beer', 
+                mediaType: 'application/json', //allows other plugins to find this data
+                contentDigest: createContentDigest(beer), //lets gatsby know if data has changed
+            },
+        };
+                //3. create a node for each      
+        actions.createNode({
+            ...beer, 
+            ...nodeMeta,
+        });
+    };//end FOR    
+};//end fetchBeersAndTurnIntoNodes
 
 export async function sourceNodes(params) {
     //fetch list of beers and source into gatsby API
