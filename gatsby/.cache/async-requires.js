@@ -9,6 +9,7 @@ exports.components = {
   "component---src-pages-order-js": () => import("./../../../src/pages/order.js" /* webpackChunkName: "component---src-pages-order-js" */),
   "component---src-pages-pizzas-js": () => import("./../../../src/pages/pizzas.js" /* webpackChunkName: "component---src-pages-pizzas-js" */),
   "component---src-pages-slicemasters-js": () => import("./../../../src/pages/slicemasters.js" /* webpackChunkName: "component---src-pages-slicemasters-js" */),
-  "component---src-templates-pizza-template-js": () => import("./../../../src/templates/PizzaTemplate.js" /* webpackChunkName: "component---src-templates-pizza-template-js" */)
+  "component---src-templates-pizza-template-js": () => import("./../../../src/templates/PizzaTemplate.js" /* webpackChunkName: "component---src-templates-pizza-template-js" */),
+  "component---src-templates-slicemaster-template-js": () => import("./../../../src/templates/SlicemasterTemplate.js" /* webpackChunkName: "component---src-templates-slicemaster-template-js" */)
 }
 

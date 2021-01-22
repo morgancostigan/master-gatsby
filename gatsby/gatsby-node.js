@@ -67,10 +67,35 @@ async function turnToppingsIntoPages({ graphql, actions }) {
 
 }// turnToppingsIntoPages
 
-async function turnSlicemastersIntoPages({ graphql, actions }) {
+async function turnPeopleIntoPages({ graphql, actions }) {
     //1. get template
+    const personTemplate = path.resolve('./src/templates/SlicemasterTemplate.js');
     //2. query slicemasters
+    const { data } = await graphql(`
+        query {
+            people: allSanityPerson {
+                nodes {
+                    name
+                    slug {
+                        current
+                    }
+                }
+            }
+        }
+    `);
     //3. create page for each slicemaster
+    data.people.nodes.forEach(person => {
+        console.log('creating', person.name);
+        actions.createPage({
+            //what's the URL for this new page
+            path: `person/${person.slug.current}`,
+            component: personTemplate,
+            //use context to pass data TO template
+            context: {
+                slug: person.slug.current,
+            }
+        })
+    });
 }//end turnSlicemastersIntoPages
 
 async function fetchBeersAndTurnIntoNodes({ 
@@ -116,7 +141,7 @@ export async function createPages(params) {
     await Promise.all([
         turnPizzasIntoPages(params),
         turnToppingsIntoPages(params),
-        turnSlicemastersIntoPages(params)
+        turnPeopleIntoPages(params)
     ]);
     //1. PIZZAS
     //2. TOPPINGS

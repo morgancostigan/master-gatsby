@@ -12,6 +12,7 @@ exports.components = {
   "component---src-pages-order-js": hot(preferDefault(require("/Users/macbookpro/Documents/Tier-4/master-gatsby-master/starter-files/gatsby/src/pages/order.js"))),
   "component---src-pages-pizzas-js": hot(preferDefault(require("/Users/macbookpro/Documents/Tier-4/master-gatsby-master/starter-files/gatsby/src/pages/pizzas.js"))),
   "component---src-pages-slicemasters-js": hot(preferDefault(require("/Users/macbookpro/Documents/Tier-4/master-gatsby-master/starter-files/gatsby/src/pages/slicemasters.js"))),
-  "component---src-templates-pizza-template-js": hot(preferDefault(require("/Users/macbookpro/Documents/Tier-4/master-gatsby-master/starter-files/gatsby/src/templates/PizzaTemplate.js")))
+  "component---src-templates-pizza-template-js": hot(preferDefault(require("/Users/macbookpro/Documents/Tier-4/master-gatsby-master/starter-files/gatsby/src/templates/PizzaTemplate.js"))),
+  "component---src-templates-slicemaster-template-js": hot(preferDefault(require("/Users/macbookpro/Documents/Tier-4/master-gatsby-master/starter-files/gatsby/src/templates/SlicemasterTemplate.js")))
 }
 
