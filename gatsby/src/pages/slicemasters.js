@@ -17,12 +17,21 @@ const SingleSlicemasterStyles = styled.div`
         height: 400px;
     }
     h2 {
-        transform: rotate(-12deg);
+        transform: rotate(-8deg);
         text-align: center;
         font-size: 4rem;
         margin-bottom: -2rem;
         position: relative;
         z-index: 2;
+    }
+    .description {
+        background: var(--yellow);
+        padding: 1rem;
+        margin: 1rem;
+        margin-top: -6rem;
+        z-index: 2;
+        position: relative;
+        transform: rotate(1deg);
     }
 `;
 
