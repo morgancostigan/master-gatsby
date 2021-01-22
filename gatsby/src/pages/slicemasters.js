@@ -1,4 +1,4 @@
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import React from 'react';
 
 export default function SliceMastersPage({ data }) {
@@ -8,6 +8,17 @@ export default function SliceMastersPage({ data }) {
     return (
         <>
             <p>Kia Ora, I'm the slicemasters page!</p>
+            <div>
+                {slicemasters.map( person => (
+                    <div>
+                        <Link to={`/slicemaster/${person.slug.current}`}>
+                            <h2>
+                                <span className="mark">{person.name}</span>
+                            </h2>
+                        </Link>
+                    </div>
+                ))}
+            </div>
         </ >
     );
 }
