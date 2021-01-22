@@ -1,5 +1,12 @@
 import { graphql } from 'gatsby';
 import React from 'react';
+import styled from 'styled-components';
+
+const BeerGridStyles = styled.div`
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+`;
 
 export default function BeersPage({ data }) {
     console.log({data});
@@ -8,7 +15,7 @@ export default function BeersPage({ data }) {
         <>
             <h2 className="center">We have {data.beers.nodes.length} beers available!</h2>
             <h3 className="center">Dine in only.</h3>
-            <div>
+            <BeerGridStyles>
                 {data.beers.nodes.map(beer => {
                     const rating = Math.round(beer.rating.average);
                     return (
@@ -27,7 +34,7 @@ export default function BeersPage({ data }) {
                         </div>
                     )
                 })}
-            </div>
+            </BeerGridStyles>
         </>
     );
 }
