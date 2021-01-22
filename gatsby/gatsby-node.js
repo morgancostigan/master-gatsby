@@ -29,9 +29,8 @@ async function turnPizzasIntoPages({graphql, actions}) {
                 slug: pizza.slug.current,
             }
         })
-        
     });
-}
+}//end turnPizzasIntoPages
 
 async function turnToppingsIntoPages({ graphql, actions }) {
     // console.log('makin toppins');
@@ -65,13 +64,29 @@ async function turnToppingsIntoPages({ graphql, actions }) {
     });
     //4. pass topping data to pizza.js
 
-}
+}// turnToppingsIntoPages
 
 async function turnSlicemastersIntoPages({ graphql, actions }) {
     //1. get template
     //2. query slicemasters
     //3. create page for each slicemaster
-}
+}//end turnSlicemastersIntoPages
+
+async function fetchBeersAndTurnIntoNodes({ 
+    actions, createNodeId, createContentDigest}) {
+        console.log('turn beers into nodes');
+        
+    
+}//end fetchBeersAndTurnIntoNodes
+
+export async function sourceNodes(params) {
+    //fetch list of beers and source into gatsby API
+    await Promise.all([
+        fetchBeersAndTurnIntoNodes(params), 
+    ]);
+
+
+}//end sourceNodes
 
 export async function createPages(params) {
     //create pages dynamically
@@ -84,4 +99,4 @@ export async function createPages(params) {
     //1. PIZZAS
     //2. TOPPINGS
     //3. SLICEMASTERS
-}
+}//end createPages
