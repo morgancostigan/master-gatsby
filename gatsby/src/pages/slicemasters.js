@@ -32,6 +32,7 @@ const SingleSlicemasterStyles = styled.div`
         z-index: 2;
         position: relative;
         transform: rotate(1deg);
+        text-align: center;
     }
 `;
 
@@ -41,7 +42,7 @@ export default function SliceMastersPage({ data }) {
     
     return (
         <>
-            <p>Kia Ora, I'm the slicemasters page!</p>
+            {/* <p>Kia Ora, I'm the slicemasters page!</p> */}
             <SlicemastersGridStyles>
                 {slicemasters.map( person => (
                     <SingleSlicemasterStyles>
