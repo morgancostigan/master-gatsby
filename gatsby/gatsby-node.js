@@ -1,4 +1,6 @@
 import path from 'path';
+// fetch allows you to fetch within node
+import fetch from 'isomorphic-fetch';
 
 async function turnPizzasIntoPages({graphql, actions}) {
     //1. get a page template
@@ -49,7 +51,6 @@ async function turnToppingsIntoPages({ graphql, actions }) {
     `);
     //3. create page for each topping
     data.toppings.nodes.forEach(topping => {
-        console.log('creatin page for', topping.name);
         actions.createPage({
             //what's the URL for this new page
             path: `topping/${topping.name}`,
@@ -74,8 +75,13 @@ async function turnSlicemastersIntoPages({ graphql, actions }) {
 
 async function fetchBeersAndTurnIntoNodes({ 
     actions, createNodeId, createContentDigest}) {
-        console.log('turn beers into nodes');
-        
+        //1. fetch list of beers  
+    const res = await fetch('https://api.sampleapis.com/beers/ale');
+    const beers = await res.json();
+    console.log({beers});
+    
+        //2. loop over them
+        //3. create a node for each      
     
 }//end fetchBeersAndTurnIntoNodes
 
