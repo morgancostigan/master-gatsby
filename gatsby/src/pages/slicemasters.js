@@ -18,6 +18,7 @@ export default function SliceMastersPage({ data }) {
                             </h2>
                         </Link>
                         <Img fluid={person.image.asset.fluid} alt={person.name}></Img>
+                        <p className="description">{person.description}</p>
                     </div>
                 ))}
             </div>
