@@ -42,11 +42,12 @@ export default function SliceMastersPage({ data }) {
     
     return (
         <>
+            <p>{process.env.GATSBY_PAGE_SIZE}</p>
             {/* <p>Kia Ora, I'm the slicemasters page!</p> */}
             <SlicemastersGridStyles>
                 {slicemasters.map( person => (
                     <SingleSlicemasterStyles>
-                        <Link to={`/slicemaster/${person.slug.current}`}>
+                        <Link to={`/person/${person.slug.current}`}>
                             <h2>
                                 <span className="mark">{person.name}</span>
                             </h2>

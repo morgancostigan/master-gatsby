@@ -3,7 +3,7 @@ import Img from 'gatsby-image';
 import React from 'react';
 import styled from 'styled-components';
 
-const PizzaGrid = styled.div`
+const SlicemasterGrid = styled.div`
     display: grid;
     grid-gap: 2rem;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
@@ -11,25 +11,19 @@ const PizzaGrid = styled.div`
 
 export default function SinglePersonPage({ data: { person } }) {
     // console.log({pizza});
-    return <PizzaGrid>
-        <Img fluid={pizza.image.asset.fluid} />
+    return <SlicemasterGrid>
+        <Img fluid={person.image.asset.fluid} />
         <div>
-            <h2 className="mark">{pizza.name}</h2>
-            <ul>
-                {pizza.toppings.map(topping => <li key={topping.id}>
-                    {topping.name}
-                </li>)}
-            </ul>
+            <h2 className="mark">{person.name}</h2>
+            <p>{person.description}</p>
         </div>
-    </PizzaGrid>
+    </SlicemasterGrid>
 }
 
 //this needs to be dynamic based on the slug passed in via context in gatsby-node.js
 export const query = graphql`
-    query {
-        people: allSanityPerson {
-            totalCount
-            nodes {
+    query($slug: String!) {
+        person: sanityPerson( slug: { current: { eq: $slug } } ) {
                 name
                 id
                 description
@@ -43,7 +37,6 @@ export const query = graphql`
                 slug {
                     current
                 }
-            }
         }
     }
 `;
