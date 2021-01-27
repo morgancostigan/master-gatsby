@@ -8,8 +8,12 @@ export default function Pagination({
     const totalPages = Math.ceil(totalCount / pageSize);
     const prevPage = currentPage - 1;
     const nextPage = currentPage + 1;
+    const hasNext = nextPage <= totalPages;
+    const hasPrev = prevPage >= 1;
     return <div>
-        <Link to={`${base}/${prevPage}`}>◀️</Link>
-        <Link to={`${base}/${nextPage}`}>▶️</Link>
+        <Link disabled={!hasPrev} to={`${base}/${prevPage}`}>◀️ Previous</Link>
+        {Array.from({length: totalPages}).map((_, i) => 
+            <Link>{i + 1}</Link>)}
+        <Link disabled={!hasNext} to={`${base}/${nextPage}`}>Next ▶️</Link>
     </div>
 }

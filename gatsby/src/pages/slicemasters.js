@@ -45,7 +45,7 @@ export default function SliceMastersPage({ data, pageContext }) {
         <>
             <Pagination 
                 pageSize={pageContext.pageSize}
-                totalCount={slicemasters.totalCount}
+                totalCount={data.people.totalCount}
                 currentPage={pageContext.currentPage || 1}
                 skip={pageContext.skip}
                 base="/slicemasters"
