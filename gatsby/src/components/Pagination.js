@@ -3,7 +3,23 @@ import React from 'react';
 import styled from 'styled-components';
 
 const PaginationStyles = styled.div`
-
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+    border: 1px solid var(--grey);
+    margin: 2rem 0;
+    border-radius: 5px;
+    & > * {
+        padding: 1rem;
+        flex: 1;
+        border-right: 1px solid var(--grey);
+        text-decoration: none; //removes link underlining
+        &[aria-current], .current {
+            color: var(--red);
+        }
+    }
 `;
 
 export default function Pagination({
@@ -15,10 +31,10 @@ export default function Pagination({
     const nextPage = currentPage + 1;
     const hasNext = nextPage <= totalPages;
     const hasPrev = prevPage >= 1;
-    return <div>
-        <Link disabled={!hasPrev} to={`${base}/${prevPage}`}>◀️ Previous </Link>
+    return <PaginationStyles>
+        <Link disabled={!hasPrev} to={`${base}/${prevPage}`}>◀️ Previous</Link>
         {Array.from({length: totalPages}).map((_, i) => 
-            <Link to={`${base}/${i > 0 ? i + 1 : ''}`}>{i + 1} </Link>)}
+            <Link to={`${base}/${i > 0 ? i + 1 : ''}`}>{i + 1}</Link>)}
         <Link disabled={!hasNext} to={`${base}/${nextPage}`}>Next ▶️</Link>
-    </div>
+    </PaginationStyles>
 }
