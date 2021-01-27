@@ -42,7 +42,7 @@ export default function SliceMastersPage({ data }) {
     
     return (
         <>
-            <p>{process.env.GATSBY_PAGE_SIZE}</p>
+            {/* <p>{process.env.GATSBY_PAGE_SIZE}</p> */}
             {/* <p>Kia Ora, I'm the slicemasters page!</p> */}
             <SlicemastersGridStyles>
                 {slicemasters.map( person => (
