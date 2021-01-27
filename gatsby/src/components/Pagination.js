@@ -1,5 +1,10 @@
 import { Link } from 'gatsby';
 import React from 'react';
+import styled from 'styled-components';
+
+const PaginationStyles = styled.div`
+
+`;
 
 export default function Pagination({
     pageSize, totalCount, currentPage, skip, base
@@ -11,9 +16,9 @@ export default function Pagination({
     const hasNext = nextPage <= totalPages;
     const hasPrev = prevPage >= 1;
     return <div>
-        <Link disabled={!hasPrev} to={`${base}/${prevPage}`}>◀️ Previous</Link>
+        <Link disabled={!hasPrev} to={`${base}/${prevPage}`}>◀️ Previous </Link>
         {Array.from({length: totalPages}).map((_, i) => 
-            <Link>{i + 1}</Link>)}
+            <Link to={`${base}/${i > 0 ? i + 1 : ''}`}>{i + 1} </Link>)}
         <Link disabled={!hasNext} to={`${base}/${nextPage}`}>Next ▶️</Link>
     </div>
 }
