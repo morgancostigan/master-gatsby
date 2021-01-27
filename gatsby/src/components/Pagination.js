@@ -16,8 +16,12 @@ const PaginationStyles = styled.div`
         flex: 1;
         border-right: 1px solid var(--grey);
         text-decoration: none; //removes link underlining
-        &[aria-current], .current {
+        &[aria-current], &.current {
             color: var(--red);
+        }
+        &[disabled] {
+            pointer-events: none;
+            color: var(--grey);
         }
     }
 `;
@@ -34,7 +38,10 @@ export default function Pagination({
     return <PaginationStyles>
         <Link disabled={!hasPrev} to={`${base}/${prevPage}`}>◀️ Previous</Link>
         {Array.from({length: totalPages}).map((_, i) => 
-            <Link to={`${base}/${i > 0 ? i + 1 : ''}`}>{i + 1}</Link>)}
+            <Link 
+                className={currentPage === 1 && i === 0 ? 'current' : ''}
+                to={`${base}/${i > 0 ? i + 1 : ''}`}
+            >{i + 1}</Link>)}
         <Link disabled={!hasNext} to={`${base}/${nextPage}`}>Next ▶️</Link>
     </PaginationStyles>
 }
