@@ -74,6 +74,7 @@ async function turnPeopleIntoPages({ graphql, actions }) {
     const { data } = await graphql(`
         query {
             people: allSanityPerson {
+                totalCount
                 nodes {
                     name
                     slug {
@@ -83,9 +84,12 @@ async function turnPeopleIntoPages({ graphql, actions }) {
             }
         }
     `);
+    //2.5 figure out how many slicemasters there are and how many we want per page to determine the number of pages
+    const pageSize = parseInt(process.env.GATSBY_PAGE_SIZE);
+    const pageCount = Math.ceil(data.people.totalCount / pageSize);
     //3. create page for each slicemaster
     data.people.nodes.forEach(person => {
-        console.log('creating', person.name);
+        // console.log('creating', person.name);
         actions.createPage({
             //what's the URL for this new page
             path: `person/${person.slug.current}`,
@@ -96,6 +100,19 @@ async function turnPeopleIntoPages({ graphql, actions }) {
             }
         })
     });
+    //4. loop through people to make pages 1 thru n and make pages
+    Array.from({ length: pageCount}).forEach((_, i) => {
+        console.log(`creating page ${i}`);
+        actions.createPage({
+            path: `/slicemasters/${i+1}`,
+            component: path.resolve('./src/pages/slicemasters.js'),
+            context: {
+                 skip: i * pageSize,
+                 currentPage: i + 1,
+                 pageSize,
+            }
+        })
+    })
 }//end turnSlicemastersIntoPages
 
 async function fetchBeersAndTurnIntoNodes({ 
