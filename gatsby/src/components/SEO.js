@@ -18,6 +18,9 @@ export default function SEO({ children, location, description, title, image }) {
         <Helmet titleTemplate={`%s - ${site.siteMetadata.title}`}>
             <html lang="en"/>
             <title>{title}</title>
+            {/* favicons */}
+            <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+            <link rel="alternate icon"  href="/favicon.ico"/>
         </Helmet>
     );
 };
