@@ -9,6 +9,7 @@ module.exports = {
         title: `Slick's Slices`,
         siteUrl: `https://gatsby.pizza`,
         description: `Simply the best, better than all the others.`,
+        twitter: `@SlicksSlices`
     },
     plugins: [
         // vvvv to use default plugin settings import like this vvvv
