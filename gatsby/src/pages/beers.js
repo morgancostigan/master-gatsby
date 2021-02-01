@@ -30,7 +30,7 @@ export default function BeersPage({ data }) {
     
     return (
         <>
-            <SEO title="Beer List"/>
+            <SEO title={`Beer! ${data.beers.nodes.length} varieties available.`}/>
             <h2 className="center">We have {data.beers.nodes.length} beers available!</h2>
             <h3 className="center">Dine in only.</h3>
             <BeerGridStyles>
