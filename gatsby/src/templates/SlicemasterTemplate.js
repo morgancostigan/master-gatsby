@@ -5,6 +5,7 @@ import styled from 'styled-components';
 
 const SlicemasterGrid = styled.div`
     display: grid;
+    justify-content: center;
     grid-gap: 2rem;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
 `;
@@ -13,7 +14,7 @@ export default function SinglePersonPage({ data: { person } }) {
     // console.log({pizza});
     return <SlicemasterGrid>
         <Img fluid={person.image.asset.fluid} />
-        <div>
+        <div >
             <h2 className="mark">{person.name}</h2>
             <p>{person.description}</p>
         </div>

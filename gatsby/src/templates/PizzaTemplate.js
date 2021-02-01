@@ -2,6 +2,8 @@ import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import React from 'react';
 import styled from 'styled-components';
+import { Helmet } from 'react-helmet';
+
 
 const PizzaGrid = styled.div`
     display: grid;
@@ -12,6 +14,8 @@ const PizzaGrid = styled.div`
 export default function SinglePizzaPage({data: {pizza}}) {
     // console.log({pizza});
     return <PizzaGrid>
+
+        <Helmet><title>Slick's - {pizza.name}</title></Helmet>
         <Img fluid={pizza.image.asset.fluid}/>
         <div>
             <h2 className="mark">{pizza.name}</h2>
