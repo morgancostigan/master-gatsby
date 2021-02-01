@@ -2,6 +2,7 @@ import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import React from 'react';
 import styled from 'styled-components';
+import SEO from '../components/SEO';
 
 const SlicemasterGrid = styled.div`
     display: grid;
@@ -12,13 +13,18 @@ const SlicemasterGrid = styled.div`
 
 export default function SinglePersonPage({ data: { person } }) {
     // console.log({pizza});
-    return <SlicemasterGrid>
-        <Img fluid={person.image.asset.fluid} />
-        <div >
-            <h2 className="mark">{person.name}</h2>
-            <p>{person.description}</p>
-        </div>
-    </SlicemasterGrid>
+    return (
+        <>
+            <SEO title={`Slicemaster ${person.name}!`}/>
+            <SlicemasterGrid>
+                <Img fluid={person.image.asset.fluid} />
+                <div >
+                    <h2 className="mark">{person.name}</h2>
+                    <p>{person.description}</p>
+                </div>
+            </SlicemasterGrid>
+        </>
+    )
 }
 
 //this needs to be dynamic based on the slug passed in via context in gatsby-node.js
