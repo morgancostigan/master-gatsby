@@ -12,7 +12,9 @@ module.exports = {
     },
     plugins: [
         // vvvv to use default plugin settings import like this vvvv
-        'gatsby-plugin-styled-components',         
+        'gatsby-plugin-styled-components',  
+        // vvvv to ensure Helmets work server side
+        'gatsby-plugin-react-helmet',     
         // vvvv to use settings other than the default, import like this vvvv
         {
             //plugin name
