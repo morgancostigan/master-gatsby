@@ -1,4 +1,4 @@
-import { useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
@@ -14,7 +14,9 @@ export default function SEO({ children, location, description, title, image }) {
             }
         }
     `);
-    return <Helmet titleTemplate={`%s - Slick's Slices`}>
-        <html lang="en"/>
-    </Helmet>
+    return (
+        <Helmet titleTemplate={`%s - ${site.siteMetadata.title}`}>
+            <html lang="en"/>
+        </Helmet>
+    );
 };

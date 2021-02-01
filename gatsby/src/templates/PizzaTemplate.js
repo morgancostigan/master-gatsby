@@ -2,7 +2,7 @@ import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import React from 'react';
 import styled from 'styled-components';
-import { Helmet } from 'react-helmet';
+import SEO from '../components/SEO';
 
 
 const PizzaGrid = styled.div`
@@ -13,19 +13,24 @@ const PizzaGrid = styled.div`
 
 export default function SinglePizzaPage({data: {pizza}}) {
     // console.log({pizza});
-    return <PizzaGrid>
+    return (
+        <>
+            <SEO />
+            <PizzaGrid>
+            <Img fluid={pizza.image.asset.fluid} />
+            <div>
+                <h2 className="mark">{pizza.name}</h2>
+                <ul>
+                    {pizza.toppings.map(topping => 
+                    <li key={topping.id}>
+                        {topping.name}
+                    </li>)}
+                </ul>
+            </div>
+            </PizzaGrid>
+        </>
+    )
 
-        <Helmet><title>Slick's - {pizza.name}</title></Helmet>
-        <Img fluid={pizza.image.asset.fluid}/>
-        <div>
-            <h2 className="mark">{pizza.name}</h2>
-            <ul>
-                {pizza.toppings.map(topping => <li key={topping.id}>
-                    {topping.name}
-                </li>)}
-            </ul>
-        </div>
-    </PizzaGrid>
 }
 
 //this needs to be dynamic based on the slug passed in via context in gatsby-node.js
