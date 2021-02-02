@@ -2,12 +2,15 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import SEO from '../components/SEO';
 import useForm from '../utils/useForm';
+import Img from 'gatsby-image';
 
-export default function OrderPage() {
+export default function OrderPage({ data }) {
     const {values, updateValues} = useForm({
         name: '',
         email: ''
     });
+
+    const pizzas = data.pizzas.nodes;
 
     return (
         <>
@@ -16,23 +19,41 @@ export default function OrderPage() {
             <form>
                 <fieldset>
                     <legend>Your Info</legend>
-                    <label htmlFor="name">Name</label>
-                    <input 
-                        type="text" 
-                        name="name" 
-                        value={values.name}
-                        onChange={updateValues}
-                    />
-                    <label htmlFor="email">Email</label>
-                    <input 
-                        type="email" 
-                        name="email" 
-                        value={values.email}
-                        onChange={updateValues}
-                    />
+                    <label htmlFor="name">Name
+                        <input 
+                            type="text" 
+                            name="name" 
+                            id="name"
+                            value={values.name}
+                            onChange={updateValues}
+                        />
+                    </label>
+                    <label htmlFor="email">Email
+                        <input 
+                            type="email" 
+                            name="email" 
+                            id="email"
+                            value={values.email}
+                            onChange={updateValues}
+                        />
+                    </label>
                 </fieldset>
                 <fieldset>
                     <legend>Menu</legend>
+                    {pizzas.map(pizza => (
+                        <div key={pizza.id}>
+                            <Img 
+                                width="50"
+                                height="50"
+                                fluid={pizza.image.asset.fluid}
+                                alt={pizza.name} 
+                            />
+                            <div>
+                                <h2>{pizza.name}</h2>
+                            </div>
+                            
+                        </div>
+                    ))}
                 </fieldset>
                 <fieldset>
                     <legend>Order</legend>
@@ -44,7 +65,7 @@ export default function OrderPage() {
 
 export const query = graphql`
     query {
-        pizza: allSanityPizza{
+        pizzas: allSanityPizza{
             nodes {
                 name
                 id
