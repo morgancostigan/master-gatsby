@@ -3,7 +3,7 @@ import { useState } from 'react';
 export default function useForm(defaults) {
     const [values, setValues] = useState(defaults)
     
-    function updateValue(e) {
+    function updateValues(e) {
         //check if its a number and convert
         let { value } = e.target;
         if(e.target.type === 'number') {
@@ -18,5 +18,5 @@ export default function useForm(defaults) {
         });
     }
 
-    return { values, updateValue };
+    return { values, updateValues };
 };
