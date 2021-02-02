@@ -51,7 +51,13 @@ export default function OrderPage({ data }) {
                             <div>
                                 <h2>{pizza.name}</h2>
                             </div>
-                            
+                            <div>
+                                {['S', 'M', 'L'].map(size => (
+                                    <button type="button">
+                                        {size}
+                                    </button>
+                                ))}
+                            </div>
                         </div>
                     ))}
                 </fieldset>
