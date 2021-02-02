@@ -1,3 +1,4 @@
+import { graphql } from 'gatsby';
 import React from 'react';
 import SEO from '../components/SEO';
 import useForm from '../utils/useForm';
@@ -39,4 +40,24 @@ export default function OrderPage() {
             </form>
         </>
     );
-}
+};
+
+export const query = graphql`
+    query {
+        pizza: allSanityPizza{
+            nodes {
+                name
+                id
+                price
+                slug {current}
+                image {
+                    asset {
+                        fluid(maxWidth: 100) {
+                            ... GatsbySanityImageFluid
+                        }
+                    }
+                }
+            }
+        }
+    }
+`;
