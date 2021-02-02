@@ -4,6 +4,7 @@ import SEO from '../components/SEO';
 import useForm from '../utils/useForm';
 import Img from 'gatsby-image';
 import calculatePizzaPrice from '../utils/calculatePizzaPrice';
+import formatMoney from '../utils/formatMoney';
 
 export default function OrderPage({ data }) {
     const {values, updateValues} = useForm({
@@ -56,7 +57,7 @@ export default function OrderPage({ data }) {
                                 {['S', 'M', 'L'].map(size => (
                                     <button type="button">
                                         {size} 
-                                        {calculatePizzaPrice(pizza.price, size)}
+                                        {formatMoney(calculatePizzaPrice(pizza.price, size))}
                                     </button>
                                 ))}
                             </div>

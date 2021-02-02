@@ -1,8 +1,8 @@
-const formatter = Intl.NumberFormat('en-NZ', {
+const formatter = Intl.NumberFormat('en-EU', {
     style: 'currency',
-    currency: 'NZD',
+    currency: 'EUR',
 })
 
 export default function formatMoney(cents) {
-    return formatter.format()
+    return formatter.format(cents / 100)
 }
