@@ -11,6 +11,14 @@ const OrderStyles = styled.form`
         display: grid;
         gap: 1rem;
         align-content: start;
+        &.menu, &.order {
+            grid-column: span 1;
+        }
+    }
+    @media (max-width: 750px) {
+        fieldset.menu, fieldset.order {
+            grid-column: span 2;
+        } 
     }
 `;
 
