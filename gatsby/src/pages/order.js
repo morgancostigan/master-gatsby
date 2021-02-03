@@ -7,14 +7,21 @@ import calculatePizzaPrice from '../utils/calculatePizzaPrice';
 import formatMoney from '../utils/formatMoney';
 import OrderStyles from '../styles/OrderStyles';
 import MenuItemStyles from '../styles/MenuItemStyles';
+import usePizza from '../utils/usePizza';
 
 export default function OrderPage({ data }) {
+
+    const pizzas = data.pizzas.nodes;
+
     const {values, updateValues} = useForm({
         name: '',
         email: ''
     });
 
-    const pizzas = data.pizzas.nodes;
+    const {order, addToOrder, removeFromOrder} = usePizza({
+        pizzas, 
+        inputs: values
+    });
 
     return (
         <>
