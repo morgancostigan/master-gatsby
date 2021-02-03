@@ -5,6 +5,7 @@ import useForm from '../utils/useForm';
 import Img from 'gatsby-image';
 import calculatePizzaPrice from '../utils/calculatePizzaPrice';
 import formatMoney from '../utils/formatMoney';
+import OrderStyles from '../styles/OrderStyles';
 
 export default function OrderPage({ data }) {
     const {values, updateValues} = useForm({
@@ -18,7 +19,7 @@ export default function OrderPage({ data }) {
         <>
             <SEO title="Order Page"/>
             <p>Kia Ora, I'm the order page!</p>
-            <form>
+            <OrderStyles>
                 <fieldset>
                     <legend>Your Info</legend>
                     <label htmlFor="name">Name
@@ -67,7 +68,7 @@ export default function OrderPage({ data }) {
                 <fieldset>
                     <legend>Order</legend>
                 </fieldset>
-            </form>
+            </OrderStyles>
         </>
     );
 };
