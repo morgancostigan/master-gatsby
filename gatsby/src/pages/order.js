@@ -2,7 +2,7 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import Img from 'gatsby-image';
 import SEO from '../components/SEO';
-import useForm from '../utils/useForm';
+import useForm from '../utils/useForm'; 
 import usePizza from '../utils/usePizza';
 import calculatePizzaPrice from '../utils/calculatePizzaPrice';
 import formatMoney from '../utils/formatMoney';
