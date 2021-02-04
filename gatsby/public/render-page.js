@@ -3996,7 +3996,7 @@ exports.onRenderBody = void 0;
 
 var react_1 = __webpack_require__(/*! react */ "react");
 
-exports.onRenderBody = function (_ref, config) {
+exports.onRenderBody = function (_ref) {
   var setHeadComponents = _ref.setHeadComponents;
   setHeadComponents([react_1.createElement('link', {
     rel: 'preconnect',
