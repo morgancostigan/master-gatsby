@@ -1,15 +1,11 @@
- import React from 'react';
-import usePizza from '../utils/usePizza';
+import React from 'react';
 
- export default function PizzaOrder({ 
-     order, 
-     pizzas,
-     removeFromOrder,
-     plainImage
- }) {
-    return (
-        <>
-            <p>Order!!!!!!!</p>
-        </>
-    )
- }
+export default function PizzaOrder({ order }) {
+  return (
+    <>
+      {order?.map((item) => (
+        <p>{item.id}</p>
+      ))}
+    </>
+  );
+}
