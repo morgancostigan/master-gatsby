@@ -2,12 +2,12 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import SEO from '../components/SEO';
 import useForm from '../utils/useForm';
+import usePizza from '../utils/usePizza';
 import Img from 'gatsby-image';
 import calculatePizzaPrice from '../utils/calculatePizzaPrice';
 import formatMoney from '../utils/formatMoney';
 import OrderStyles from '../styles/OrderStyles';
 import MenuItemStyles from '../styles/MenuItemStyles';
-import usePizza from '../utils/usePizza';
 import PizzaOrder from '../components/PizzaOrder';
 
 export default function OrderPage({ data }) {
@@ -21,7 +21,7 @@ export default function OrderPage({ data }) {
 
     const {order, addToOrder, removeFromOrder} = usePizza({
         pizzas, 
-        inputs: values
+        inputs: values,
     });
 
     return (
@@ -68,7 +68,7 @@ export default function OrderPage({ data }) {
                                     <button type="button" 
                                         onClick={() => addToOrder({
                                             id: pizza.id,
-                                            size: size
+                                            size,
                                     })}>
                                         {size}
                                         {` `}
@@ -81,7 +81,11 @@ export default function OrderPage({ data }) {
                 </fieldset>
                 <fieldset className="order">
                     <legend>Order</legend>
-                    <PizzaOrder/>
+                    <PizzaOrder 
+                        order={order}
+                        removeFromOrder={removeFromOrder}
+                        pizzas={pizzas}
+                    />
                 </fieldset>
             </OrderStyles>
         </>
