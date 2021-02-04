@@ -7,7 +7,7 @@ export default function usePizza({ pizzas, inputs }) {
     function addToOrder(orderedPizza) {
         console.log({ orderedPizza })
         console.log('previous order total', order);
-        setOrder([...order, orderedPizza]);
+        setOrder([ ...order, orderedPizza]);
     };
     console.log('order', order);
     

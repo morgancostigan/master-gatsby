@@ -3,10 +3,7 @@ import React from 'react';
 import Img from 'gatsby-image';
 import SEO from '../components/SEO';
 import useForm from '../utils/useForm';
-
 import usePizza from '../utils/usePizza';
-
-import Img from 'gatsby-image';
 import calculatePizzaPrice from '../utils/calculatePizzaPrice';
 import formatMoney from '../utils/formatMoney';
 import OrderStyles from '../styles/OrderStyles';
