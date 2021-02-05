@@ -7,7 +7,7 @@ export default function calculateOrderTotal(order, pizzas) {
     //add to running total
         ///////accumulator and single order
     const totalPrice = order.reduce((acc, singleOrder) => {
-        const pizza = pizzas.find(pizza => pizza.id === singleOrder.id);
+        const pizza = pizzas.find(singlePizza => singlePizza.id === singleOrder.id);
         return acc + calculatePizzaPrice(pizza.price, singleOrder.size);
     }, 0); 
     return formatMoney(totalPrice);
