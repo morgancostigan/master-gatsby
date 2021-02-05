@@ -21,7 +21,8 @@ export default function PizzaOrder({
                     <Img fluid={pizza.image.asset.fluid}/>
                     <h2>{pizza.name}</h2>
                     <p>
-                        {formatMoney(calculatePizzaPrice(pizza.price, singleOrder.size))} 
+                        {formatMoney(calculatePizzaPrice(pizza.price, singleOrder.size))}
+                        {' '}
                         {singleOrder.size} 
                         <button 
                             type="button" 
