@@ -3,10 +3,11 @@ import OrderContext from '../components/OrderContext';
 
 export default function usePizza({ pizzas, inputs }) {
     //1. create state that holds order    
-    const [order, setOrder] = useState([]);
-    const nonsense = useContext(OrderContext);
-    console.log(nonsense);
-    
+    //vvv removed this after moving useState up to the Provider
+    // const [order, setOrder] = useState([]);
+    //vvv now we are accessing state and updater (order and setOrder) via context
+    const [order, setOrder] = useContext(OrderContext);
+
     //2. make an add to order function    
     function addToOrder(orderedPizza) {
         console.log({ orderedPizza })
