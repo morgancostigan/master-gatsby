@@ -7,3 +7,6 @@ export function wrapPageElement({ element, props }) {
         {element}
     </Layout>
 }
+export function wrapRootElement({ element }) {
+    return <OrderProvider>{element}</OrderProvider>
+}
