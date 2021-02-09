@@ -13,7 +13,7 @@ export default function usePizza({ pizzas, inputs }) {
         console.log('previous order total', order);
         setOrder([ ...order, orderedPizza]);
     };
-    console.log('order', order);
+    // console.log('order', order);
     
     
     //3. make a remove function

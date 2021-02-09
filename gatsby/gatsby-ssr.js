@@ -1,6 +1,7 @@
 //this file Gatsby loads into the server for faster browsing
 import React from 'react';
 import Layout from './src/components/Layout';
+import { OrderProvider } from './src/components/OrderContext';
 
 export function wrapPageElement({ element, props }) {
     return <Layout {...props}>
@@ -8,5 +9,5 @@ export function wrapPageElement({ element, props }) {
     </Layout>
 }
 export function wrapRootElement({ element }) {
-    return <OrderProvider>{element}</OrderProvider>
+    return <OrderProvider >{element}</OrderProvider>
 }
