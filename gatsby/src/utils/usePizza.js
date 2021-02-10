@@ -29,6 +29,13 @@ export default function usePizza({ pizzas, inputs }) {
             ...order.slice(index + 1), 
         ]); 
     };
+    async function submitOrder(e) {
+        e.preventDefault();
+        console.log({e});
+        setLoading(true);
+        
+    }
+
     //4. send data to a serverless func on checkout
     //TODO
     return {
@@ -38,5 +45,6 @@ export default function usePizza({ pizzas, inputs }) {
         error,
         loading,
         message,
+        submitOrder,
     };
 }
