@@ -9,7 +9,6 @@ export default function attachNamesAndPrices(order, pizzas) {
             name: pizza.name,
             thumbnail: pizza.image.asset.fluid.src,
             price: formatMoney(calculatePizzaPrice(pizza.price, item.size)),
-            size: item.size,
         };
     });
 };
