@@ -36,6 +36,8 @@ export default function usePizza({ pizzas, values }) {
         e.preventDefault();
         console.log({e});
         setLoading(true);
+        setError(null);
+        setMessage(null);
         //gather data to be sent
         const body = {
             order: attachNamesAndPrices(order, pizzas),
@@ -43,12 +45,27 @@ export default function usePizza({ pizzas, values }) {
             name: values.name,
             email: values.email,
         };
-        console.log({body});
-        
-    }
+        // console.log({body});
+        //4. send data to a serverless func on checkout
+        const res = await fetch(`${process.env.GATSBY_SERVER_BASE}/placeOrder`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(body),
+        });
+        const text = JSON.parse(await res.text());
+        //confirm that it worked
+        if(res.status >= 400 && res.status < 600){
+            setLoading(false);
+            setError(text.message);
+        } else {
+            //it works
+            setLoading(false);
+            setMessage('Order placed successfully!')
+        }
+    };//end submitOrder func
 
-    //4. send data to a serverless func on checkout
-    //TODO
     return {
         order,
         addToOrder,

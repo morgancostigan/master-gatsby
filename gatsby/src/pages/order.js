@@ -32,6 +32,11 @@ export default function OrderPage({ data }) {
     values: values,
   });
 
+  //message only exists after successful submit 
+  if(message) {
+    return<p>{message}</p>
+  };
+
   return (
     <>
       <SEO title="Order Page" />
@@ -100,6 +105,9 @@ export default function OrderPage({ data }) {
         </fieldset>
         <fieldset>
             <h3>Your Total Is {calculateOrderTotal(order, pizzas)}</h3>
+            <div> 
+              {error ? <p>Error: {error}</p> : ''}
+            </div>
             <button type="submit" disabled={loading}>
               {loading ? 'Placing Order...' : 'Place Order'}
             </button>
