@@ -7,6 +7,9 @@ export default function usePizza({ pizzas, inputs }) {
     // const [order, setOrder] = useState([]);
     //vvv now we are accessing state and updater (order and setOrder) via context
     const [order, setOrder] = useContext(OrderContext);
+    const [error, setError] = useState();
+    const [loading, setLoading] = useState(false);
+    const [message, setMessage] = useState('');
 
     //2. make an add to order function    
     function addToOrder(orderedPizza) {
@@ -32,5 +35,8 @@ export default function usePizza({ pizzas, inputs }) {
         order,
         addToOrder,
         removeFromOrder,
+        error,
+        loading,
+        message,
     };
 }
