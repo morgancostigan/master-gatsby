@@ -65,7 +65,7 @@ export default function OrderPage({ data }) {
             />
           </label>
         </fieldset>
-        <fieldset className="menu">
+        <fieldset disabled={loading} className="menu">
           <legend>Menu</legend>
           {pizzas.map((pizza) => (
             <MenuItemStyles key={pizza.id}>
@@ -99,11 +99,11 @@ export default function OrderPage({ data }) {
             </MenuItemStyles>
           ))}
         </fieldset>
-        <fieldset className="order">
+        <fieldset disabled={loading} className="order">
           <legend>Order</legend>
           <PizzaOrder order={order} pizzas={pizzas} removeFromOrder={removeFromOrder}/>
         </fieldset>
-        <fieldset>
+        <fieldset disabled={loading}>
             <h3>Your Total Is {calculateOrderTotal(order, pizzas)}</h3>
             <div> 
               {error ? <p>Error: {error}</p> : ''}

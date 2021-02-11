@@ -29,14 +29,14 @@ const transporter = nodemailer.createTransport({
     }
 });
 
-function wait(ms = 0) {
-    return new Promise((resolve, reject) => {
-        setTimeout(resolve, ms);
-    });
-};
+// function wait(ms = 0) {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(resolve, ms);
+//     });
+// };
 
 exports.handler = async(event, context) => {
-    await wait(5000);
+    // await wait(5000);
     //validate the data coming in is OK
     const body = JSON.parse(event.body);
     
@@ -44,17 +44,27 @@ exports.handler = async(event, context) => {
     for(const field of requiredFields){
         console.log(`Checking for valid ${field}.`);
         if(!body[field]){
+    //return error message
             return {
                 statusCode: 400,
-                body: JSON.stringify({message: `Oh zang! You are missing the ${field} field!`})
+                body: JSON.stringify({
+                    message: `Oh zang! You are missing the ${field} field!`
+                })
             }
         }
     }
+    //check that order is not empty before submission
+    if (!body.order.length) {
+        //return error message
+        return {
+            statusCode: 400,
+            body: JSON.stringify({ 
+                message: `Silly goose, you can't send empty orders!` 
+            })
+        }
+    }
+
     //send email
-    //return success or error message
-
-
-    //test send email
     const info = await transporter.sendMail({
         from: "Slick's Slices <slick@example.com>",
         to: `${body.name} <${body.email}>`,
@@ -62,7 +72,8 @@ exports.handler = async(event, context) => {
         html: generateOrderEmail({ order: body.order, total: body.total }),
     })
     console.log({info});
-    
+    //return success message
+
     return {
         statusCode: 200,
         body: JSON.stringify({message: 'Success'})
