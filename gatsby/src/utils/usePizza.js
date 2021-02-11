@@ -44,6 +44,7 @@ export default function usePizza({ pizzas, values }) {
             total: calculateOrderTotal(order, pizzas),
             name: values.name,
             email: values.email,
+            dreadPirateJimmy: values.dreadPirateJimmy,
         };
         console.log({body});
         //4. send data to a serverless func on checkout

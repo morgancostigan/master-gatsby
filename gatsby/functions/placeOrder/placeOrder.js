@@ -39,6 +39,15 @@ exports.handler = async(event, context) => {
     // await wait(5000);
     //validate the data coming in is OK
     const body = JSON.parse(event.body);
+    //check for dreadPirateJimmy honeypot 
+    if (body.dreadPirateJimmy) {
+        return {
+            statusCode: 400,
+            body: JSON.stringify({ 
+                message: 'Evil natured robots not welcome. Error 8675309'
+            })
+        }
+    }
     
     const requiredFields = ['email', 'name', 'order'];
     for(const field of requiredFields){
@@ -53,6 +62,7 @@ exports.handler = async(event, context) => {
             }
         }
     }
+
     //check that order is not empty before submission
     if (!body.order.length) {
         //return error message
