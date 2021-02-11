@@ -9,12 +9,23 @@ export default {
     icon: icon,
     fields: [
         {
+            name: 'name',
+            title: 'Store Name',
+            type: 'string',
+            description: 'Name of the Pizza',
+        },
+        {
             name: 'slicemaster',
             title: 'Slicemasters Currently Slicing',
             type: 'array',
             of: [{ type: 'reference', to: [{ type: 'person'}]}]
-        }
-
+        },
+        {
+            name: 'hotSlices',
+            title: 'Slices Available Now',
+            type: 'array',
+            of: [{ type: 'reference', to: [{ type: 'pizza' }] }]
+        },
     ],
     preview: {
 
