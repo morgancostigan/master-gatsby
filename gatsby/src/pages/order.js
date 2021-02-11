@@ -42,7 +42,7 @@ export default function OrderPage({ data }) {
       <SEO title="Order Page" />
       <p>Kia Ora, I'm the order page!</p>
       <OrderStyles onSubmit={submitOrder}>
-        <fieldset>
+        <fieldset disabled={loading}>
           <legend>Your Info</legend>
           <label htmlFor="name">
             Name
