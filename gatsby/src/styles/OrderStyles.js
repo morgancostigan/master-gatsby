@@ -15,6 +15,9 @@ const OrderStyles = styled.form`
             grid-column: span 1;
         }
     }
+    .dreadPirateJimmy {
+        display: none;
+    }
     @media (max-width: 930px) {
         fieldset.menu, fieldset.order {
             grid-column: span 2;

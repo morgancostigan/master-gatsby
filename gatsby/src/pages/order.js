@@ -70,6 +70,7 @@ export default function OrderPage({ data }) {
               id="dreadPirateJimmy"
               value={values.dreadPirateJimmy}
               onChange={updateValues}
+              className="dreadPirateJimmy"
             />
           </label>
         </fieldset>
