@@ -28,8 +28,8 @@
       "path": "./schemas/schema"
     },
         {
-      "name": "part:@sanity/desk-tool/structure-builder",
-      "path": "./sidebar.js"
+      "name": "part:@sanity/desk-tool/structure",
+      "path": "./sidebar.js "
     }
   ]
 }
