@@ -25,7 +25,7 @@ module.exports = {
                 dataset: 'production',
                     //watchMode automtically updates gatsby when it sees changes to Sanity data
                 watchMode: true,
-                token: process.env.SANITY_TOKEN,
+                token: process.env.SANITY_AUTH_TOKEN,
             },
         },
     ],
