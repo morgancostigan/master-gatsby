@@ -27,9 +27,9 @@
       "name": "part:@sanity/base/schema",
       "path": "./schemas/schema"
     },
-        {
+    {
       "name": "part:@sanity/desk-tool/structure",
-      "path": "./sidebar.js "
+      "path": "./sidebar.js"
     }
   ]
 }
