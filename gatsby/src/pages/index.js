@@ -1,4 +1,5 @@
 import React from 'react';
+import useLatestData from '../utils/useLatestData';
 
 function CurrentlySlicing() {
     return (
