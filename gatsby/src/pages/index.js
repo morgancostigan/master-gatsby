@@ -1,5 +1,22 @@
 import React from 'react';
 
+function CurrentlySlicing() {
+    return (
+        <div>
+            <p>Currently Slicing</p>
+        </div>
+    );
+};
+
+function HotSlices() {
+    return (
+        <div>
+            <p>Hot Slices</p>
+        </div>
+    );
+};
+
+
 export default function HomePage() {
     return (
         <div className="center">
