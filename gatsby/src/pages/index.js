@@ -19,6 +19,9 @@ function HotSlices() {
 
 
 export default function HomePage() {
+    const result = useLatestData();
+    console.log({result});
+    
     return (
         <div className="center">
             <h1>The Best Damn Pizza Around</h1>
