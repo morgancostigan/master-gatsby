@@ -33,7 +33,8 @@ export default function useLatestData() {
         .then((res) => {
             // TODO check for errors
             // set state
-            console.log(res.data);
+            setHotSlices(res.data.StoreSettings.hotSlices);
+            setSlicemasters(res.data.StoreSettings.slicemaster);
         })
         .catch((err) => {
             console.log('Oh Zang!');
