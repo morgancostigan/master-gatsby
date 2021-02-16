@@ -11,7 +11,7 @@ export default function Sidebar() {
             <strong>🏠 </strong>)
             .child(
                 S.editor()
-                .schemaType(`Store Settings`)
+                    .schemaType(`storeSettings`)
                 //make a new document ID, instead of random string
                 .documentId(`downtown`)
             ),
