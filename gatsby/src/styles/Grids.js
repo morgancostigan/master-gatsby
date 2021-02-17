@@ -29,14 +29,24 @@ export const ItemStyles = styled.div`
     .mark {
         display: inline;
     }
+    @keyframes shine {
+        from {
+            background-position: 200%;
+        }
+        to {
+            background-position: 40%;
+        }
+    }
     img.loading {
-        --shine: white;
-        --background: var(--grey);
+        --shine: var(--grey);
+        --background: white;
         background-image: linear-gradient(
-            90deg, 
+            45deg, 
             var(--background) 0px, 
-            var(--shine) 40px, 
-            var(--background) 80px
+            var(--shine) 200px, 
+            var(--background) 40px
         );
+        background-size: 500px;
+        animation: shine 2s infinite linear;
     }
 `;
