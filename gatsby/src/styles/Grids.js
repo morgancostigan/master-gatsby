@@ -7,5 +7,7 @@ export const HomePageGrid = styled.div`
 `;
 
 export const ItemsGrid = styled.div`
-
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr;
 `;
