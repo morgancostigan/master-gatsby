@@ -1,20 +1,22 @@
 import React from 'react';
-import { ItemsGrid } from "../styles/Grids";
+import { ItemsGrid, ItemStyles } from "../styles/Grids";
 
 export default function LoadingGrid({count}) {
     return (
         <ItemsGrid>
             {Array.from({ length: count }, (_, i) => (
-                <div>
-                    <p className="mark">Loading...</p>
+                <ItemStyles>
+                    <p>
+                        <span className="mark">Loading...</span>
+                    </p>
                     <img 
                         className="loading" 
                         src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUAAAAECAQAAADsOj3LAAAADklEQVR42mNkgANGQkwAAJoABWH6GPAAAAAASUVORK5CYII=" 
-                        alt="Loading"
+                        alt="loading"
                         width="500"
                         height="400" 
                     />
-                </div>
+                </ItemStyles>
             ))}
         </ItemsGrid>
     );

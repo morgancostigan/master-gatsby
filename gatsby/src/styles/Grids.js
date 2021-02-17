@@ -11,3 +11,32 @@ export const ItemsGrid = styled.div`
     gap: 20px;
     grid-template-columns: 1fr 1fr;
 `;
+
+//single grid item for home page
+export const ItemStyles = styled.div`
+    text-align: center;
+    position: relative;
+    img {
+        height: auto;
+        font-size: 0;
+    }
+    p {
+        transform: rotate(-3deg) translateY(-50%);
+        position: absolute;
+        width: 100%; 
+        left: 0;
+    }
+    .mark {
+        display: inline;
+    }
+    img.loading {
+        --shine: white;
+        --background: var(--grey);
+        background-image: linear-gradient(
+            90deg, 
+            var(--background) 0px, 
+            var(--shine) 40px, 
+            var(--background) 80px
+        );
+    }
+`;
