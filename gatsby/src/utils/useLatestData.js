@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 
+const gql = String.raw; //fake gql for formatting below
+
 export default function useLatestData() {
     //hot slices
     const [hotSlices, setHotSlices] = useState();
@@ -14,18 +16,19 @@ export default function useLatestData() {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                query: `
+                //not really gql, but formats as such with faker up top
+                query: gql`
                     query {
-  StoreSettings(id: "downtown"){
-		name
-    slicemaster {
-      name
-    }
-    hotSlices {
-      name
-    }
-  }
-}
+                        StoreSettings(id: "downtown"){
+                            name
+                            slicemaster {
+                                name
+                            }
+                            hotSlices {
+                                name
+                            }
+                        }
+                    }
                 `,
             }),
         })
