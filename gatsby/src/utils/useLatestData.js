@@ -2,6 +2,19 @@ import React, { useEffect, useState } from "react";
 
 const gql = String.raw; //fake gql for formatting below
 
+const dirtyDeets = `
+    name
+    _id 
+    image {
+        asset {
+            url
+            metadata {
+                lqip
+            }
+        }
+    }
+`;
+
 export default function useLatestData() {
     //hot slices
     const [hotSlices, setHotSlices] = useState();
@@ -17,15 +30,17 @@ export default function useLatestData() {
             },
             body: JSON.stringify({
                 //not really gql, but formats as such with faker up top
+                //     _id rather than id for direct sanity query
                 query: gql`
                     query {
                         StoreSettings(id: "downtown"){
                             name
                             slicemaster {
-                                name
+                                ${dirtyDeets}
                             }
                             hotSlices {
                                 name
+                                ${dirtyDeets}
                             }
                         }
                     }
@@ -42,8 +57,6 @@ export default function useLatestData() {
         .catch((err) => {
             console.log('Oh Zang!');
             console.log(err);
-            
-            
         });
     }, []);
     return {
