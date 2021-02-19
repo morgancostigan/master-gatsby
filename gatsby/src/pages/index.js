@@ -8,7 +8,13 @@ function CurrentlySlicing({ slicemasters }) {
     console.log({slicemasters});
     
     return (
-        <div>
+        <div key="slicemasters">
+            <h3 className="center">
+                <span className="mark tilt">
+                    Slicemasters at the helm
+                </span>
+            </h3>
+            <p>We'll get you the slice you need!</p>
             {!slicemasters && <LoadingGrid count={4} />}
             {slicemasters && !slicemasters?.length && 
                 (<p>No one's working at the moment.</p>)
@@ -20,7 +26,14 @@ function CurrentlySlicing({ slicemasters }) {
 
 function HotSlices({ hotSlices }) {
     return (
-        <div>
+        <div key={hotSlices}>
+            <h3 className="center">
+                <span className="mark tilt">
+                    Current Mouth Burners
+                </span>
+            </h3>
+            <p>All hot, all available now!</p>
+
             {!hotSlices && <LoadingGrid count={4} />}
             {hotSlices && !hotSlices?.length &&
                 (<p>Nothing hot just yet.</p>)
