@@ -41,7 +41,6 @@ export default function OrderPage({ data }) {
   return (
     <>
       <SEO title="Order Page" />
-      <p>Kia Ora, I'm the order page!</p>
       <OrderStyles onSubmit={submitOrder}>
         <fieldset disabled={loading}>
           <legend>Your Info</legend>

@@ -2,8 +2,11 @@ import styled from "styled-components";
 
 export const HomePageGrid = styled.div`
     display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 20px;
-    grid-template-columns: repeat(2, minmax(auto, 1fr));
+    --columns: 4;
+    /* grid-template-columns: repeat(var(--columns), minmax(auto, 1fr)); */
+
 `;
 
 export const ItemsGrid = styled.div`
@@ -21,7 +24,7 @@ export const ItemStyles = styled.div`
         font-size: 0;
     }
     p {
-        transform: rotate(-3deg) translateY(-50%);
+        transform: rotate(-3deg) translateY(-120%);
         position: absolute;
         width: 100%; 
         left: 0;
