@@ -12,7 +12,6 @@ const SlicemasterGrid = styled.div`
 `;
 
 export default function SinglePersonPage({ data: { person } }) {
-    // console.log({pizza});
     return (
         <>
             <SEO title={`Slicemaster ${person.name}!`}/>

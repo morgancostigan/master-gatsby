@@ -16,11 +16,10 @@ export default function usePizza({ pizzas, values }) {
 
     //2. make an add to order function    
     function addToOrder(orderedPizza) {
-        console.log({ orderedPizza })
-        console.log('previous order total', order);
+
         setOrder([ ...order, orderedPizza]);
     };
-    // console.log('order', order);
+
     
     
     //3. make a remove function
@@ -34,7 +33,6 @@ export default function usePizza({ pizzas, values }) {
     };
     async function submitOrder(e) {
         e.preventDefault();
-        console.log({e});
         setLoading(true);
         setError(null);
         setMessage(null);
@@ -46,7 +44,6 @@ export default function usePizza({ pizzas, values }) {
             email: values.email,
             dreadPirateJimmy: values.dreadPirateJimmy,
         };
-        console.log({body});
         //4. send data to a serverless func on checkout
         const res = await fetch(`${process.env.GATSBY_SERVER_BASE}/placeOrder`, {
             method: 'POST',

@@ -18,10 +18,8 @@ async function turnPizzasIntoPages({graphql, actions}) {
             }
         }
     `);
-    // console.log({data});
     //3. loop over pizzas and create a page for each
     data.pizzas.nodes.forEach(pizza => {
-        // console.log('creating', pizza.name);
         actions.createPage({
             //what's the URL for this new page
             path: `pizza/${pizza.slug.current}`,
@@ -35,7 +33,6 @@ async function turnPizzasIntoPages({graphql, actions}) {
 }//end turnPizzasIntoPages
 
 async function turnToppingsIntoPages({ graphql, actions }) {
-    // console.log('makin toppins');
     //1. get template
     const toppingTemplate = path.resolve('./src/pages/pizzas.js');
     //2. query toppings
@@ -89,7 +86,6 @@ async function turnPeopleIntoPages({ graphql, actions }) {
     const pageCount = Math.ceil(data.people.totalCount / pageSize);
     //3. create page for each slicemaster
     data.people.nodes.forEach(person => {
-        // console.log('creating', person.name);
         actions.createPage({
             //what's the URL for this new page
             path: `person/${person.slug.current}`,
@@ -102,7 +98,6 @@ async function turnPeopleIntoPages({ graphql, actions }) {
     });
     //4. loop through people to make pages 1 thru n and make pages
     Array.from({ length: pageCount}).forEach((_, i) => {
-        console.log(`creating page ${i}`);
         actions.createPage({
             path: `/slicemasters/${i+1}`,
             component: path.resolve('./src/pages/slicemasters.js'),

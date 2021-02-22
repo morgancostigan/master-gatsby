@@ -4,9 +4,7 @@ import LoadingGrid from '../components/LoadingGrid';
 import { HomePageGrid } from '../styles/Grids';
 import useLatestData from '../utils/useLatestData';
 
-function CurrentlySlicing({ slicemasters }) {
-    console.log({slicemasters});
-    
+function CurrentlySlicing({ slicemasters }) {    
     return (
         <section id="homies" key="slicemasters">
             <h3 className="center">

@@ -51,7 +51,6 @@ exports.handler = async(event, context) => {
     
     const requiredFields = ['email', 'name', 'order'];
     for(const field of requiredFields){
-        console.log(`Checking for valid ${field}.`);
         if(!body[field]){
     //return error message
             return {
@@ -81,7 +80,6 @@ exports.handler = async(event, context) => {
         subject: `New Order for ${body.name}!`,
         html: generateOrderEmail({ order: body.order, total: body.total }),
     })
-    console.log({info});
     //return success message
 
     return {

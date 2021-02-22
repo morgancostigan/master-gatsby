@@ -35,14 +35,11 @@ function countPizzasForTopping(pizzas) {
         //1. check if topping exists
         const existingTopping = acc[topping.id];
         //2. if yes, increment 
-        if (existingTopping) {
-            console.log('ex top,', existingTopping.name);
-            
+        if (existingTopping) {            
             existingTopping.count += 1
         }
         //3. if no, create new entry in accumulator
         else {
-            console.log('new top,', topping.name);
             acc[topping.id] = {
                 id: topping.id,
                 name: topping.name,
@@ -75,7 +72,6 @@ export default function ToppingsFilter({activeTopping}) {
     `)
     //3. count how many pizzas have eacch topping
     const toppingsWithCounts = countPizzasForTopping(pizzas.nodes);
-    console.log({toppingsWithCounts});
     
     //5. Link it
     return (
