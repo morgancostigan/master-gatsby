@@ -34,6 +34,7 @@ export default function BeersPage({ data }) {
             <h3 className="center">Dine in only.</h3>
             <BeerGridStyles>
                 {data.beers.nodes.map(beer => {
+                    if(!beer.name) return null;
                     const rating = Math.round(beer.rating.average);
                     return (
                         <SingleBeerStyles key={beer.id}>
