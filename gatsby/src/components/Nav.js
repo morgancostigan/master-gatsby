@@ -70,6 +70,9 @@ const NavStyles = styled.nav`
 
         }
     }
+    @media (max-width:500px) {
+        --columns: 2;
+    }
 `;
 
 
