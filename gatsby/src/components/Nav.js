@@ -47,6 +47,9 @@ const NavStyles = styled.nav`
         &:hover {
             color: var(--red);
         }
+        @media (max-width:800px) {
+            font-size: 2rem;
+        }
     }
 `;
 
