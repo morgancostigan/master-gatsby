@@ -24,10 +24,12 @@ export const ItemStyles = styled.div`
         font-size: 0;
     }
     p {
-        transform: rotate(-3deg) translateY(-120%);
+        top: 0;
+        transform: rotate(-3deg) translateY(-10px);
         position: absolute;
         width: 100%; 
         left: 0;
+        margin: 0;
     }
     .mark {
         display: inline;
