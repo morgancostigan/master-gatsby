@@ -32,6 +32,7 @@ export const ItemStyles = styled.div`
         width: 100%; 
         left: 0;
         margin: 0;
+        font-size: 2rem;
         font-size: clamp(12px, 5vw, 20px);
     }
     .mark {
