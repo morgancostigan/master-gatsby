@@ -6,6 +6,9 @@ import Pagination from '../components/Pagination';
 import SEO from '../components/SEO';
 
 const SlicemastersGridStyles = styled.div`
+    /* align-content: center;
+    align-items: center;
+    justify-items: center; */
     display: grid;
     grid-gap: 2rem;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -70,7 +73,7 @@ export default function SliceMastersPage({ data, pageContext }) {
 }
 
 export const query = graphql`
-    query($skip: Int = 0, $pageSize: Int = 2){
+    query($skip: Int = 0, $pageSize: Int = 3){
         people: allSanityPerson(limit: $pageSize, skip: $skip) {
             totalCount
             nodes {

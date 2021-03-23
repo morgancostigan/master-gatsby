@@ -28,6 +28,7 @@ const PaginationStyles = styled.div`
         .word{
             display: none;
         }
+        font-size: 1.4rem;
     }
 `;
 
