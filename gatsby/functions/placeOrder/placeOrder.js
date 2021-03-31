@@ -41,7 +41,7 @@ module.exports = async(req, res) => { //optimized for vercel, see hello.js for m
     const {body} = req;
     //check for dreadPirateJimmy honeypot 
     if (body.dreadPirateJimmy) {
-        res.status(400).json({
+        return res.status(400).json({
             message: 'Evil natured robots not welcome. Error 8675309',
         })
     }
@@ -50,7 +50,7 @@ module.exports = async(req, res) => { //optimized for vercel, see hello.js for m
     for(const field of requiredFields){
         if(!body[field]){
     //return error message
-            res.status(400).json({
+            return res.status(400).json({
                 message: `Oh zang! You are missing the ${field} field!`,
             })
         }
@@ -59,7 +59,7 @@ module.exports = async(req, res) => { //optimized for vercel, see hello.js for m
     //check that order is not empty before submission
     if (!body.order.length) {
         //return error message
-        res.status(400).json({
+        return res.status(400).json({
             message: `Silly goose, you can't send empty orders!`, 
         })
     }
