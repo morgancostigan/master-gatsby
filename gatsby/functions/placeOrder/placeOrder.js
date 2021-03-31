@@ -50,24 +50,18 @@ module.exports = async(req, res) => { //optimized for vercel, see hello.js for m
     for(const field of requiredFields){
         if(!body[field]){
     //return error message
-            return {
-                statusCode: 400,
-                body: JSON.stringify({
-                    message: `Oh zang! You are missing the ${field} field!`
-                })
-            }
+            res.status(400).json({
+                message: `Oh zang! You are missing the ${field} field!`,
+            })
         }
     }
 
     //check that order is not empty before submission
     if (!body.order.length) {
         //return error message
-        return {
-            statusCode: 400,
-            body: JSON.stringify({ 
-                message: `Silly goose, you can't send empty orders!` 
-            })
-        }
+        res.status(400).json({
+            message: `Silly goose, you can't send empty orders!`, 
+        })
     }
 
     //send email
