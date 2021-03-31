@@ -73,8 +73,7 @@ module.exports = async(req, res) => { //optimized for vercel, see hello.js for m
     })
     //return success message
 
-    return {
-        statusCode: 200,
-        body: JSON.stringify({message: 'Success'})
-    }
+    return res.status(200).json({
+        message: 'Success',
+    })
 }
