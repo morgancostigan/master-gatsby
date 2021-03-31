@@ -35,18 +35,15 @@ const transporter = nodemailer.createTransport({
 //     });
 // };
 
-exports.handler = async(event, context) => {
+module.exports = async(req, res) => { //optimized for vercel, see hello.js for more
     // await wait(5000);
     //validate the data coming in is OK
-    const body = JSON.parse(event.body);
+    const {body} = req;
     //check for dreadPirateJimmy honeypot 
     if (body.dreadPirateJimmy) {
-        return {
-            statusCode: 400,
-            body: JSON.stringify({ 
-                message: 'Evil natured robots not welcome. Error 8675309'
-            })
-        }
+        res.status(400).json({
+            message: 'Evil natured robots not welcome. Error 8675309',
+        })
     }
     
     const requiredFields = ['email', 'name', 'order'];
